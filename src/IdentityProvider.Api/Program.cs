@@ -1,4 +1,5 @@
 using FluentValidation;
+using Mediator;
 using IdentityProvider.Api.Common.Behaviors;
 using IdentityProvider.Api.Common.Middleware;
 using IdentityProvider.Api.Features.Users;
@@ -14,12 +15,12 @@ builder.WebHost.ConfigureKestrel(options =>
 // Add services to the container.
 builder.Services.AddOpenApi();
 
-// Add MediatR with automatic handler registration
-builder.Services.AddMediatR(cfg =>
+// Add Mediator with automatic handler registration
+builder.Services.AddMediator(options =>
 {
-    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
-    cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+    options.ServiceLifetime = ServiceLifetime.Scoped;
 });
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 // Add FluentValidation
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);

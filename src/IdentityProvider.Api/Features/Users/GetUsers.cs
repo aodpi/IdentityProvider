@@ -1,4 +1,4 @@
-using MediatR;
+using Mediator;
 
 namespace IdentityProvider.Api.Features.Users;
 
@@ -12,7 +12,7 @@ public static class GetUsers
 
     public class Handler : IRequestHandler<Query, Response>
     {
-        public Task<Response> Handle(Query request, CancellationToken cancellationToken)
+        public ValueTask<Response> Handle(Query request, CancellationToken cancellationToken)
         {
             // This is sample data - in a real application, you would fetch from a database
             var users = new List<UserDto>
@@ -22,7 +22,7 @@ public static class GetUsers
                 new(Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"), "Bob Johnson", "bob.johnson@example.com")
             };
 
-            return Task.FromResult(new Response(users));
+            return ValueTask.FromResult(new Response(users));
         }
     }
 }

@@ -29,7 +29,7 @@ src/IdentityProvider.Api/
 
 - **.NET 9.0** - Latest .NET framework
 - **ASP.NET Core Minimal APIs** - Lightweight API endpoints
-- **MediatR** - Mediator pattern for CQRS
+- **Mediator** - Mediator pattern for CQRS (source-generated)
 - **FluentValidation** - Request validation
 - **OpenAPI** - API documentation
 

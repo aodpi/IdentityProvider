@@ -1,5 +1,5 @@
 using FluentValidation;
-using MediatR;
+using Mediator;
 
 namespace IdentityProvider.Api.Features.Users;
 
@@ -25,12 +25,12 @@ public static class CreateUser
 
     public class Handler : IRequestHandler<Command, Response>
     {
-        public Task<Response> Handle(Command request, CancellationToken cancellationToken)
+        public ValueTask<Response> Handle(Command request, CancellationToken cancellationToken)
         {
             // This is sample data - in a real application, you would save to a database
             var userId = Guid.NewGuid();
             
-            return Task.FromResult(new Response(userId, request.Name, request.Email));
+            return ValueTask.FromResult(new Response(userId, request.Name, request.Email));
         }
     }
 }

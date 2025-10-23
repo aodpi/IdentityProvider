@@ -37,7 +37,7 @@ See [src/IdentityProvider.Api/README.md](src/IdentityProvider.Api/README.md) for
 ## Features
 
 - ✅ Vertical Slice Architecture
-- ✅ MediatR for CQRS pattern
+- ✅ Mediator for CQRS pattern (source-generated)
 - ✅ FluentValidation for request validation
 - ✅ OpenAPI documentation
 - ✅ Global exception handling

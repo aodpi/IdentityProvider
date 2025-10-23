@@ -12,7 +12,7 @@ Successfully created a base .NET 9.0 Web API application using **Vertical Slice 
 
 ### 2. Core Technologies
 - **ASP.NET Core 9.0** with Minimal APIs
-- **MediatR 13.0** for CQRS pattern implementation
+- **Mediator 3.0** (source-generated) for CQRS pattern implementation
 - **FluentValidation 12.0** for request validation
 - **OpenAPI** for API documentation
 
@@ -33,7 +33,7 @@ Implemented a complete user management feature with:
 ### 5. Infrastructure Components
 
 #### ValidationBehavior
-- MediatR pipeline behavior for automatic validation
+- Mediator pipeline behavior for automatic validation
 - Validates all requests before handler execution
 - Throws ValidationException with detailed errors
 

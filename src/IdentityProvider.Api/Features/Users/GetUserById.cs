@@ -1,4 +1,4 @@
-using MediatR;
+using Mediator;
 
 namespace IdentityProvider.Api.Features.Users;
 
@@ -10,7 +10,7 @@ public static class GetUserById
 
     public class Handler : IRequestHandler<Query, Response?>
     {
-        public Task<Response?> Handle(Query request, CancellationToken cancellationToken)
+        public ValueTask<Response?> Handle(Query request, CancellationToken cancellationToken)
         {
             // This is sample data - in a real application, you would fetch from a database
             // Return matching sample users for testing
@@ -21,7 +21,7 @@ public static class GetUserById
                 { Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Response(Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"), "Bob Johnson", "bob.johnson@example.com") }
             };
 
-            return Task.FromResult(sampleUsers.GetValueOrDefault(request.Id));
+            return ValueTask.FromResult(sampleUsers.GetValueOrDefault(request.Id));
         }
     }
 }
