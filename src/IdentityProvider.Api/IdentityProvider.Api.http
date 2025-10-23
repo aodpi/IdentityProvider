@@ -1,6 +1,46 @@
 @IdentityProvider.Api_HostAddress = http://localhost:5271
 
-GET {{IdentityProvider.Api_HostAddress}}/weatherforecast/
+### Get all users
+GET {{IdentityProvider.Api_HostAddress}}/api/users
 Accept: application/json
 
 ###
+
+### Get user by ID
+GET {{IdentityProvider.Api_HostAddress}}/api/users/550e8400-e29b-41d4-a716-446655440000
+Accept: application/json
+
+###
+
+### Create a new user
+POST {{IdentityProvider.Api_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test.user@example.com"
+}
+
+###
+
+### Create user - validation error (missing email)
+POST {{IdentityProvider.Api_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Test User"
+}
+
+###
+
+### Create user - validation error (invalid email)
+POST {{IdentityProvider.Api_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "not-a-valid-email"
+}
+
+###
+
